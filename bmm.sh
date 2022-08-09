@@ -72,30 +72,18 @@ terraform -install-autocomplete
 echo "Installing Brew Cask..."
 brew install cask
 
-CASKS=(
-    #dashlane
-    brackets #Open-source Code Editor
-    dbeaver-community #DB Viewer
-    drawio #Draw IO
-    firefox #FireFox Browser
-    flux
-    google-chrome #Chrome Browser
-    google-drive #Google Drive App Access
-    intellij-idea-ce #Ensure IDE
-    macvim
-    microsoft-teams #MS-Teams
-    microsoft-office #MS-Office Suite of Apps
-    slack #Slack
-    tresorit #Tresor
-)
-
 echo "Installing Cask Apps..."
-
-brew install ${CASKS[@]} --cask
-
-echo "Installing global npm packages..."
-npm install marked -g
-
+brew install --cask brackets
+brew install --cask canva
+brew install --cask dbeaver-community #DB Viewer
+brew install --cask drawio #Draw IO
+brew install --cask firefox #FireFox Browser
+brew install --cask google-chrome #Chrome Browser
+brew install --cask intellij-idea-ce #Ensure IDE
+brew install --cask microsoft-teams #MS-Teams
+brew install --cask microsoft-office #MS-Office Suite of Apps
+brew install --cask slack #Slack
+brew install --cask tresorit #Tresor
 
 echo "Setting up Password prompt upon Screensaver"
 #Setup security settings of password asking upon screensaver
@@ -104,7 +92,6 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Set fast key repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 5
-
 
 #Show filename options by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -148,13 +135,23 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
 
+echo "Installing global npm packages..."
+sudo npm install marked -g
+
 echo "Installing Python packages..."
 PYTHON_PACKAGES=(
     ipython
     virtualenv
     virtualenvwrapper
+    fastapi
+    fastapi.security
+    sqlalchemy.orm
+    starlette
+    authlib.jose
+    uuid
+    datetime
+    typing
+    pydantic
+    psycopg2
 )
 pip3 install ${PYTHON_PACKAGES[@]}
-
-
-
