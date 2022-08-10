@@ -17,7 +17,6 @@ brew install gnu-indent
 brew install gnu-which
 brew install gnu-getopt
 
-brew install wget #Support most downloads here onwards
 
 ## Commented below as I dont want another jdk mess right now
 #brew install java11 #For Kafka - supported versions are 8,11,14
@@ -50,7 +49,7 @@ PACKAGES=( #Alphabetically Sorted
     terraform@1.2
     tree
     vim
-    wget
+    wget #Support most downloads here onwards
 )
 
 
@@ -85,6 +84,32 @@ brew install --cask microsoft-office #MS-Office Suite of Apps
 brew install --cask slack #Slack
 brew install --cask tresorit #Tresor
 brew install --cask visual-studio-code #VSCode
+
+
+#Add shortcuts also for installed apps in dock
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock recent-apps
+defaults delete com.apple.dock persistent-others
+
+dock_item() {
+    printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "$1"
+}
+
+defaults write com.apple.dock persistent-apps -array \
+    "$(dock_item /Applications/Canva.app)" \
+    "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
+    "$(dock_item /Applications/Slack.app)" \
+    "$(dock_item /Applications/Google\ Chrome.app)" \
+    "$(dock_item /Applications/Microsoft\ Outlook.app)" \
+    "$(dock_item /Applications/Microsoft\ Teams.app)" \
+    "$(dock_item /Applications/draw.io.app)" \
+    "$(dock_item /Applications/Tresorit.app)" \
+    "$(dock_item /Applications/DBeaver.app)" \
+
+killall Dock
+
+
+
 
 echo "Setting up Password prompt upon Screensaver"
 #Setup security settings of password asking upon screensaver
@@ -141,14 +166,12 @@ sudo npm install marked -g
 
 echo "Installing Python packages..."
 PYTHON_PACKAGES=(
-    ipython
     virtualenv
     virtualenvwrapper
     fastapi
     fastapi.security
     sqlalchemy.orm
     starlette
-    authlib.jose
     uuid
     datetime
     typing
