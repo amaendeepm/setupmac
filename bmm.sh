@@ -84,6 +84,7 @@ brew install --cask microsoft-teams #MS-Teams
 brew install --cask microsoft-office #MS-Office Suite of Apps
 brew install --cask slack #Slack
 brew install --cask tresorit #Tresor
+brew install --cask visual-studio-code #VSCode
 
 echo "Setting up Password prompt upon Screensaver"
 #Setup security settings of password asking upon screensaver
