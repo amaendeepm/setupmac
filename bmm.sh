@@ -85,6 +85,8 @@ brew install --cask slack #Slack
 brew install --cask tresorit #Tresor
 brew install --cask visual-studio-code #VSCode
 
+brew install rust-analyzer #After VSCode installed
+
 
 #Add shortcuts also for installed apps in dock
 defaults delete com.apple.dock persistent-apps
