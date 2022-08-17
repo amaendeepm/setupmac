@@ -78,6 +78,7 @@ brew install --cask dbeaver-community #DB Viewer
 brew install --cask drawio #Draw IO
 brew install --cask firefox #FireFox Browser
 brew install --cask google-chrome #Chrome Browser
+brew install --cask pycharm-ce #PyCharm community edition
 brew install --cask intellij-idea-ce #Ensure IDE
 brew install --cask microsoft-teams #MS-Teams
 brew install --cask microsoft-office #MS-Office Suite of Apps
