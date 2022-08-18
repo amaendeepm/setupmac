@@ -168,18 +168,4 @@ rm get-pip.py
 echo "Installing global npm packages..."
 sudo npm install marked -g
 
-echo "Installing Python packages..."
-PYTHON_PACKAGES=(
-    virtualenv
-    virtualenvwrapper
-    fastapi
-    fastapi.security
-    sqlalchemy.orm
-    starlette
-    uuid
-    datetime
-    typing
-    pydantic
-    psycopg2
-)
-pip3 install ${PYTHON_PACKAGES[@]}
+echo "Your Mac OSX is now ready as Developer Machine"
