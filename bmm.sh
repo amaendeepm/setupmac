@@ -85,6 +85,7 @@ brew install --cask microsoft-office #MS-Office Suite of Apps
 brew install --cask slack #Slack
 brew install --cask tresorit #Tresor
 brew install --cask visual-studio-code #VSCode
+brew install --cask openvpn-connect
 
 brew install rust-analyzer #After VSCode installed
 
