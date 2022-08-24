@@ -1,3 +1,4 @@
+
 echo "Starting to bootstrap Mac OSX"
 
 
