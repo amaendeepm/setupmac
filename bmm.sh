@@ -50,7 +50,9 @@ PACKAGES=( #Alphabetically Sorted
     terraform@1.2
     tree
     vim
+    cmake
     wget #Support most downloads here onwards
+    MaterializeInc/materialize/materialized
 )
 
 
@@ -166,6 +168,16 @@ brew upgrade
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
+
+#Install Azure specific packages
+pip3 install azure-mgmt-compute
+pip3 install azure-mgmt-storage
+pip3 install azure-mgmt-resource
+pip3 install azure-keyvault-secrets
+pip3 install azure-storage-blob
+pip3 install azure-eventhub
+pip3 install azure-eventhub-checkpointstoreblob-aio
+pip3 install azure-identity
 
 echo "Installing global npm packages..."
 sudo npm install marked -g
