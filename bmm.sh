@@ -178,6 +178,7 @@ pip3 install azure-storage-blob
 pip3 install azure-eventhub
 pip3 install azure-eventhub-checkpointstoreblob-aio
 pip3 install azure-identity
+pip3 install ulid-py
 
 echo "Installing global npm packages..."
 sudo npm install marked -g
