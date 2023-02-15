@@ -25,8 +25,8 @@ brew install gnu-getopt
 
 
 echo "Setting up Findutils & Homebank Utils"
-# Make life easy with `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
+# Make life easy with `find`, `grep`, `ninja`, `gettext`, `locate`, `updatedb`, and `xargs`, g-prefixed, and many more
+brew install ccache cmake ninja libtool gettext llvm gcc binutils grep findutils
 
 #whole unix experience
 brew install homebank
