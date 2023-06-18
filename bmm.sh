@@ -17,6 +17,7 @@ brew install gnu-tar
 brew install gnu-indent
 brew install gnu-which
 brew install gnu-getopt
+brew install gh
 
 
 ## Commented below as I dont want another jdk mess right now
@@ -182,5 +183,8 @@ pip3 install ulid-py
 
 echo "Installing global npm packages..."
 sudo npm install marked -g
+
+#Tooling for generating software bom in json or cycloneDX formats
+gh ext install advanced-security/gh-sbom
 
 echo "Your Mac OSX is now ready as Developer Machine"
