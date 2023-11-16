@@ -54,6 +54,7 @@ PACKAGES=( #Alphabetically Sorted
     cmake
     wget #Support most downloads here onwards
     MaterializeInc/materialize/materialized
+    libxml2
 )
 
 
