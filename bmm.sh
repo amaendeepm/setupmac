@@ -94,6 +94,7 @@ brew install --cask visual-studio-code #VSCode
 brew install --cask openvpn-connect
 brew install --cask postman #Postman
 brew install --cask wireshark-chmodbpf #Wireshark capture network
+brew install --cask soapui #SOAPUI for API Integrations testings
 
 brew install rust-analyzer #After VSCode installed
 
