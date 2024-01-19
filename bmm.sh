@@ -18,6 +18,7 @@ brew install gnu-indent
 brew install gnu-which
 brew install gnu-getopt
 brew install gh
+brew install wireshark
 
 
 ## Commented below as I dont want another jdk mess right now
@@ -92,9 +93,9 @@ brew install --cask tresorit #Tresor
 brew install --cask visual-studio-code #VSCode
 brew install --cask openvpn-connect
 brew install --cask postman #Postman
+brew install --cask wireshark-chmodbpf #Wireshark capture network
 
 brew install rust-analyzer #After VSCode installed
-
 
 #Add shortcuts also for installed apps in dock
 defaults delete com.apple.dock persistent-apps
