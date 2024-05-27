@@ -19,6 +19,7 @@ brew install gnu-which
 brew install gnu-getopt
 brew install gh
 brew install wireshark
+brew install apache-activemq
 
 
 ## Commented below as I dont want another jdk mess right now
