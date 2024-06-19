@@ -1,5 +1,5 @@
 
-echo "Starting to bootstrap Mac OSX"
+echo "Starting to Setup Development Mac OSX"
 
 
 if test ! $(which brew); then
@@ -22,9 +22,10 @@ brew install wireshark
 brew install apache-activemq
 
 
-## Commented below as I dont want another jdk mess right now
-#brew install java11 #For Kafka - supported versions are 8,11,14
+## Commented below as we dont want another jdk mess right now, with RPK single binary
+#brew install openjdk #For Kafka Streams specifically, supported versions are 8,11,14
 #brew install kafka --ignore-dependencies #To ensure not to bring own java with it 
+brew install redpanda-data/tap/redpanda
 
 
 echo "Setting up Findutils & Homebank Utils"
