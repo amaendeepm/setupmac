@@ -201,4 +201,6 @@ gh ext install advanced-security/gh-sbom
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 echo "Your Mac OSX is now ready as Developer Machine"
