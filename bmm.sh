@@ -21,6 +21,7 @@ brew install gnu-getopt
 brew install gh
 brew install wireshark
 brew install apache-activemq
+brew install tresorit
 
 
 ## Commented below as we dont want another jdk mess right now, with RPK single binary
