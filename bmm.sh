@@ -104,6 +104,7 @@ brew install --cask wireshark-chmodbpf #Wireshark capture network
 brew install --cask soapui #SOAPUI for API Integrations testings
 brew install --cask db-browser-for-sqlite
 brew install --cask rustrover
+brew install --cask commander-one
 
 brew install rust-analyzer #After VSCode installed
 
