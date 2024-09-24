@@ -1,11 +1,11 @@
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 
 echo "Starting to Setup Development Mac OSX"
 
 
 if test ! $(which brew); then
     echo "0. Installing homebrew..."
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew update
@@ -197,5 +197,7 @@ sudo npm install marked -g
 
 #Tooling for generating software bom in json or cycloneDX formats
 gh ext install advanced-security/gh-sbom
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Your Mac OSX is now ready as Developer Machine"
