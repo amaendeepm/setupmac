@@ -82,6 +82,7 @@ echo "Installing Brew Cask..."
 brew install cask
 
 echo "Installing Cask Apps..."
+brew install --cask microsoft-excel
 brew install --cask microsoft-outlook
 brew install --cask brackets
 brew install --cask canva
