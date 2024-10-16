@@ -12,6 +12,7 @@ brew update
 
 # Install GNU core (those that come with OS X are outdated)
 echo "Starting the core GNU experience"
+brew install git
 brew install coreutils
 brew install gnu-sed 
 brew install gnu-tar
