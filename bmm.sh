@@ -62,6 +62,7 @@ PACKAGES=( #Alphabetically Sorted
     wget #Support most downloads here onwards
     MaterializeInc/materialize/materialized
     libxml2
+    pipx
 )
 
 
@@ -84,7 +85,6 @@ echo "Installing Brew Cask..."
 brew install cask
 
 echo "Installing Cask Apps..."
-brew install --cask microsoft-excel
 brew install --cask microsoft-outlook
 brew install --cask brackets
 brew install --cask canva
