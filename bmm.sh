@@ -55,15 +55,16 @@ PACKAGES=( #Alphabetically Sorted
     python
     python3
     rabbitmq
-    rustup
+    rust
     terraform@1.2
     tree
     vim
     cmake
     wget #Support most downloads here onwards
-    MaterializeInc/materialize/materialized
     libxml2
     pipx
+    tunnelblick
+    rustup
 )
 
 
@@ -111,6 +112,9 @@ brew install --cask commander-one
 brew install --cask docker
 
 brew install rust-analyzer #After VSCode installed
+
+#Cargo process permissions to current user
+sudo chown -R $(whoami) ~/.cargo
 
 #Add shortcuts also for installed apps in dock
 defaults delete com.apple.dock persistent-apps
@@ -203,6 +207,7 @@ sudo npm install marked -g
 
 #Tooling for generating software bom in json or cycloneDX formats
 gh ext install advanced-security/gh-sbom
+
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
