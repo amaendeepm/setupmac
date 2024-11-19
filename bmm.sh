@@ -97,7 +97,7 @@ brew install --cask google-chrome #Chrome Browser
 brew install --cask pycharm-ce #PyCharm community edition
 brew install --cask intellij-idea-ce #Ensure IDE
 brew install --cask microsoft-teams #MS-Teams
-brew install --cask microsoft-office #MS-Office Suite of Apps
+###DONT DO - DO office365 ### brew install --cask microsoft-office #MS-Office Suite of Apps
 brew install --cask slack #Slack
 brew install --cask tresorit #Tresor
 brew install --cask visual-studio-code #VSCode
