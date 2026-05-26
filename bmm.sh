@@ -352,6 +352,7 @@ defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /Applications/DBeaver.app)" \
   "$(dock_item /Applications/Linear.app)" \
   "$(dock_item /Applications/Canva.app)" \
+  "$(dock_item /Applications/Tailscale.app)" \
   "$(dock_item /Applications/Tresorit.app)"
 
 killall Dock
