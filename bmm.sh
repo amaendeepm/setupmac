@@ -28,6 +28,22 @@ if ! xcode-select -p &>/dev/null; then
   until xcode-select -p &>/dev/null; do sleep 5; done
 fi
 
+# ── 0b. Xcode full IDE ────────────────────────────────────────────────────
+# Xcode cannot be installed via script — it requires the App Store or
+# Apple Developer portal. The script will attempt to open the App Store
+# page; install manually if not already present, then re-run.
+if ! [ -d "/Applications/Xcode.app" ]; then
+  warn "Xcode not found. Opening App Store — install Xcode, then re-run this script."
+  open "https://apps.apple.com/app/xcode/id497799835"
+  warn "Pausing 60s — press Ctrl-C to abort or wait to continue without Xcode..."
+  sleep 60
+else
+  info "Xcode found — accepting licence and installing extra packages..."
+  sudo xcodebuild -license accept
+  # Install iOS/macOS simulator runtimes and extra platform support
+  xcodebuild -downloadAllPlatforms 2>/dev/null || true
+fi
+
 # ── 1. Homebrew ────────────────────────────────────────────────────────────
 if ! command -v brew &>/dev/null; then
   info "Installing Homebrew..."
@@ -100,7 +116,8 @@ FORMULAE=(
   vim
   wget
   libserdes
-  tailscale
+  tailscale               # Zero-config VPN / mesh networking
+  bun                     # Bun JS runtime — required by oh-my-pi (omp)
 )
 
 brew install "${FORMULAE[@]}"
@@ -170,6 +187,19 @@ if ! command -v opencode &>/dev/null; then
     npm install -g opencode-ai@latest   # requires Node 18+ (satisfied above)
 fi
 
+# oh-my-pi (omp) — AI coding agent for the terminal
+# Features: hash-anchored edits, LSP, Python kernel, subagents, MCP, 40+ language configs
+# Requires Bun >= 1.3.7 (installed above via brew)
+info "Installing oh-my-pi (omp)..."
+if ! command -v omp &>/dev/null; then
+  # Primary: Bun global install (canonical, fastest)
+  bun install -g @oh-my-pi/pi-coding-agent || \
+    # Fallback: official install script (auto-detects Bun or downloads binary)
+    curl -fsSL https://raw.githubusercontent.com/can1357/oh-my-pi/main/scripts/install.sh | sh
+fi
+# Optional: install Python support for the IPython kernel tool
+# Run manually after setup: omp setup python
+
 # ── 6. Homebrew Cask Applications ─────────────────────────────────────────
 info "Installing Cask Applications..."
 CASKS=(
@@ -210,9 +240,8 @@ CASKS=(
   tresorit
   commander-one
 
-   # Project management
+  # Project management
   linear                  # Linear — issue tracking & project management
- 
 
   # Misc dev utilities
   homebank                # Personal finance (optional; keep if used)
@@ -342,6 +371,7 @@ defaults delete com.apple.dock recent-apps        2>/dev/null || true
 defaults delete com.apple.dock persistent-others  2>/dev/null || true
 
 defaults write com.apple.dock persistent-apps -array \
+  "$(dock_item /Applications/Xcode.app)" \
   "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
   "$(dock_item /Applications/Postman.app)" \
   "$(dock_item /Applications/Google\ Chrome.app)" \
@@ -350,9 +380,9 @@ defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /Applications/Microsoft\ Teams.app)" \
   "$(dock_item /Applications/draw.io.app)" \
   "$(dock_item /Applications/DBeaver.app)" \
+  "$(dock_item /Applications/Tailscale.app)" \
   "$(dock_item /Applications/Linear.app)" \
   "$(dock_item /Applications/Canva.app)" \
-  "$(dock_item /Applications/Tailscale.app)" \
   "$(dock_item /Applications/Tresorit.app)"
 
 killall Dock
@@ -409,6 +439,8 @@ info "  Post-setup checklist:"
 info "  0. Install Xcode from App Store if not done (script opens it automatically)"
 info "  1. aws configure  (or use aws-vault add <profile>)"
 info "  2. opencode       (launches TUI; configure provider/key on first run)"
+info "  2b. omp           (oh-my-pi TUI; set ANTHROPIC_API_KEY or run /login)"
+info "      omp setup python  (adds IPython kernel support to omp)"
 info "  3. gh auth login"
 info "  4. rustup show    (verify stable toolchain + components)"
 info "  5. cargo clippy --all-targets --all-features  (test Rust linting)"
