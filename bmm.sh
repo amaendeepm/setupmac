@@ -249,10 +249,6 @@ VSC=(
   redhat.vscode-yaml
   jebbs.plantuml
 
-  # Quality of life
-  streetsidesoftware.code-spell-checker
-  usernamehw.errorlens
-  aaron-bond.better-comments
 )
 for EXT in "${VSC[@]}"; do
   code --install-extension "$EXT" --force 2>/dev/null || warn "  VSCode ext failed: $EXT"
