@@ -163,10 +163,11 @@ pipx install boto3       2>/dev/null || pipx upgrade boto3
 # OpenCode — AI-powered terminal coding agent (uses Bedrock / Anthropic / OpenAI)
 info "Installing OpenCode..."
 if ! command -v opencode &>/dev/null; then
-  # Official installer
-  curl -fsSL https://opencode.ai/install | bash
+  # Cask preferred: integrates with 'brew upgrade' for auto-updates
+  brew install --cask opencode-desktop || \
+    curl -fsSL https://opencode.ai/install | bash || \
+    npm install -g opencode-ai@latest   # requires Node 18+ (satisfied above)
 fi
-# If the above URL changes, fallback: npm install -g opencode-ai
 
 # ── 6. Homebrew Cask Applications ─────────────────────────────────────────
 info "Installing Cask Applications..."
@@ -399,7 +400,7 @@ info "  Run: source ~/.zshrc   (or restart terminal)"
 info ""
 info "  Post-setup checklist:"
 info "  1. aws configure  (or use aws-vault add <profile>)"
-info "  2. opencode auth  (configure Bedrock or Anthropic key)"
+info "  2. opencode       (launches TUI; configure provider/key on first run)"
 info "  3. gh auth login"
 info "  4. rustup show    (verify stable toolchain + components)"
 info "  5. cargo clippy --all-targets --all-features  (test Rust linting)"
