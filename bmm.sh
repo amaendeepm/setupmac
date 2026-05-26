@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # bmm_revised.sh — Mac Developer Machine Setup
-# Amandeep Midha | Hybrid Greentech / Personal Dev Workstation
+# Amandeep Midha
 # Updated: 2026-05 — Adds VSCode (latest), OpenCode, AWS Bedrock/CLI v2,
 #          Postman, Rust toolchain via rustup (with clippy/fmt), cleanup pass
 # =============================================================================
