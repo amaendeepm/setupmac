@@ -100,6 +100,7 @@ FORMULAE=(
   vim
   wget
   libserdes
+  tailscale
 )
 
 brew install "${FORMULAE[@]}"
@@ -208,6 +209,10 @@ CASKS=(
   # File management / Encryption
   tresorit
   commander-one
+
+   # Project management
+  linear                  # Linear — issue tracking & project management
+ 
 
   # Misc dev utilities
   homebank                # Personal finance (optional; keep if used)
@@ -345,6 +350,7 @@ defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /Applications/Microsoft\ Teams.app)" \
   "$(dock_item /Applications/draw.io.app)" \
   "$(dock_item /Applications/DBeaver.app)" \
+  "$(dock_item /Applications/Linear.app)" \
   "$(dock_item /Applications/Canva.app)" \
   "$(dock_item /Applications/Tresorit.app)"
 
